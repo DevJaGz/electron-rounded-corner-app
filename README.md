@@ -19,9 +19,9 @@ This is a modern Front end made in electron js with the purpose of setup a basic
 ### Install:
 + #### Get the repository:
   - Clone (You need to have git installed):
-  > ```git clone <url repository> ```
+  > ```git clone https://github.com/jgomez109/electron-rounded-corner-app.git ```
   - Download:
-  ![Download repository](https://github.com/jgomez109/electron-rounded-corner-app/archive/refs/heads/main.zip)
+  [Download repository](https://github.com/jgomez109/electron-rounded-corner-app/archive/refs/heads/main.zip)
 
 + #### Execute:
   - In the same repository folder, where package.json is found, run the next command in a terminal: 
