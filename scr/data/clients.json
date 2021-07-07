@@ -1,0 +1,17 @@
+[
+   {
+      "id": 1,
+      "user": "Julian",
+      "password": "MyBest!@Password!"
+   },
+   {
+      "id": 2,
+      "user": "Alexa",
+      "password": "MyBest!@Password!"
+   },
+   {
+      "id": 3,
+      "user": "Custom",
+      "password": "MyBest!@Password!"
+   }
+]

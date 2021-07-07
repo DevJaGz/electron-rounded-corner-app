@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+   <!-- Local -->
+   <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+   <link rel="stylesheet" href="../css/home.css">
+   <link rel="stylesheet" href="../css/renderer_style.css">
+</head>
+
+<body>
+   <div id="welcome-gif" class="position-absolute top-50 start-50" style="transform: translate(-50%, -50%); ">
+      <img src="../../assets/gif/welcome1.gif"
+         style="width: 180px; height: 180px; border-radius: 50%; opacity:0.90; box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);"
+         alt="">
+   </div>
+   <div id="welcome-text" class="display-5 text-light text-bold position-absolute top-50 start-50"
+      style="transform: translate(-50%, -50%); text-shadow: 1px 1px 10px black;"> <span>My </span><span> Broker</span>
+   </div>
+   <div id="window" class="invisible">
+      <div id="window-bar" class="container-fluid text-light drag pt-2">
+         <div class="row">
+            <div class="col">
+               <div id="window-buttons" class="ms-3">
+                  <div class="me-3 fs-5 no-drag cursor"><i class="fas fa-times"></i></div>
+                  <div class="fs-6 pb-2 no-drag cursor"><i class="far fa-window-minimize"></i></i></div>
+               </div>
+            </div>
+            <div class="col">
+               <div id="my-broker-brand" class="navbar navbar-dark">
+                  <a class="navbar-brand" href="#">
+                     My Broker
+                     <i class="fas fa-database"></i>
+                  </a>
+               </div>
+            </div>
+            <div class="col">
+               <div class="d-flex justify-content-end align-items-center h-100 me-3 fs-4">
+                  <i id="menu-button" class="fas fa-bars no-drag cursor"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="menu-field" class="text-dark fs-6">
+         <div id="info-button" class="item-menu text-center cursor no-drag">Info</div>
+      </div>
+
+      <div id="ip-container" class="container mt-4 text-light d-flex justify-content-center">
+         <div class=" mb-4 d-flex">
+            <div class="input-wrapper me-3 ">
+               <div class="input-data">
+                  <input id="input-broker-ip" type="text" placeholder="Ejemplo: 127.0.0.1" required>
+                  <label for="input-broker-ip">Dirección IP</label>
+               </div>
+            </div>
+            <div class="input-wrapper me-3 w-25">
+               <div class="input-data">
+                  <input id="input-broker-port" step="1" type="number" placeholder="Ejemplo: 1883" required>
+                  <label for="input-broker-port">Puerto</label>
+               </div>
+            </div>
+            <div class="form-check ms-3">
+               <input class="form-check-input cursor" type="checkbox" value="no-auth" id="input-auth-option">
+               <label class="form-check-label" for="input-auth-option">
+                  Autenticación
+               </label>
+            </div>
+         </div>
+      </div>
+      <div id="auth-text" class="container text-start text-light py-0 no-show">
+         <span class="text-success "><i class="fas fa-user-lock"></i></span> Clientes autorizados :
+      </div>
+      <div class="container text-light my-3">
+         <div id="auth-clients-field" class="px-3 pt-3 overflow-auto" style="max-height: 220px;"></div>
+
+         <div class="add-icon text-success text-start  ms-2" style="font-size: 10px;">
+            <i id="auth-add-button" class="fas fa-plus cursor btn-success p-1 rounded-3 no-show"></i>
+         </div>
+      </div>
+
+      <div class="container text-center mt-2">
+         <button id="run-broker-button" type="button" class="btn btn-outline-success text-light">Iniciar <span
+               class="text-ligth"><i class="fas fa-play-circle"></i></span></button>
+      </div>
+
+      <div id="alert-field" class="container position-absolute top-50 start-50 overflow-auto"
+         style="transform: translate(-50%, -50%); max-width:400px; max-height: 400px;"></div>
+
+
+   </div>
+   <!-- ( TEMPLATES ) -->
+   <template id='template-auth-client'>
+      <div class="row">
+         <div class="col-1 text-left pt-2 text-light">
+            ID
+         </div>
+         <div class="col-4 text-center">
+            <div class="input-wrapper w-100">
+               <div class="input-data">
+                  <input type="text" placeholder="Ejemplo: ESP32" required>
+                  <label for="">Usuario</label>
+               </div>
+            </div>
+         </div>
+         <div class="col-6">
+            <div class="input-wrapper">
+               <div class="input-data float-start">
+                  <input type="password" placeholder="Ejemplo: @myPassword!" required>
+                  <label for="">Contraseña</label>
+               </div>
+               <div class="float-end"><i class="far fa-eye cursor"></i></div>
+            </div>
+         </div>
+         <div class="col-1 pt-1 text-danger text-center cursor">
+            <i class="far fa-trash-alt align-middle"></i>
+         </div>
+      </div>
+   </template>
+
+   <template id="template-alert">
+      <div class="card text-white text-center bg-secondary">
+         <div class="card-header">Advertencia</div>
+         <div class="card-body">
+            <h5 class="card-title">Titulo</h5>
+            <div class="card-text">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th scope="col">Errores</th>
+                        <th scope="col">Observaciones</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+               </table>
+            </div>
+            <a href="#" class="btn btn-sm btn-light">Cerrar</a>
+         </div>
+         <div id="dance-gif" class="position-absolute top-50 start-0 ms-2 invisible"
+            style="transform: translateY(-50%)">
+            <img class="" src="../../assets/gif/dance.gif" height="100px" alt="">
+            <!-- <source id="music" src="../../assets/mp3/Jerusalema.mp3" type="audio/mpeg"> -->
+         </div>
+      </div>
+   </template>
+   <template id="template-errors-table">
+      <tr>
+         <td>Error</td>
+         <td>Observacion</td>
+      </tr>
+   </template>
+
+   <!-- (SCRIPTS) -->
+   <script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="../js/renderer_style.js"></script>
+   <script src="../js/home.js"></script>
+</body>
+
+</html>

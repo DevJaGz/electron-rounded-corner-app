@@ -1,0 +1,19 @@
+{
+  "name": "app3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scr/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.4",
+    "electron-reload": "^1.5.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3"
+  }
+}
