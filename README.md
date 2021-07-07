@@ -15,6 +15,12 @@ Modern application with rounded corners.
 ### Description:
 This is a modern Front end made in electron js with the purpose of setup a basic local Broker, like Mosquitto, for quick tests.
 
+<div>
+  <img src="repo-doc/img/main.png" alt="main" width="300px"/>
+  <img src="repo-doc/img/clients.png" alt="clients" width="300px"/>
+  <img src="repo-doc/img/menu.png" alt="menu" width="300px"/>
+</div>
+
 ### Install:
 + #### Get the repository:
   - [Option 1] Clone with git:
