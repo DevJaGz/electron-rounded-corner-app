@@ -10,6 +10,7 @@ Modern application with rounded corners.
 ![GitHub issues](https://img.shields.io/github/issues/jgomez109/electron-rounded-corner-app?logo=github)
 ![GitHub top language](https://img.shields.io/github/languages/top/jgomez109/electron-rounded-corner-app?logo=github)
 ![requirements](https://img.shields.io/badge/Requirements-Node%20js-green)
+![tested](https://img.shields.io/badge/Tested-on%20Windows-brightgreen)
 
 <hr>
 
