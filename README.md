@@ -40,4 +40,4 @@ This is a modern Front end made in electron js with the purpose of setup a basic
 - Code commented.
 
 ### Disadvantages:
-- It cannot be maximize or resize manually. [Issue](https://github.com/electron/electron/issues/27264)
+- It cannot be maximize. [Issue](https://github.com/electron/electron/issues/27264)
